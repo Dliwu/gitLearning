@@ -1,0 +1,74 @@
+#d4{
+	height: auto;
+	width: auto;
+	position: absolute;
+	top: 820px;
+	left: 120px;
+	right: 120px;
+	background-color: white;
+}
+
+#xm{
+	float: right;
+	margin-top:10px; 
+	font-family: 宋体;
+	height: 30px;
+}
+
+#xl{
+	position: absolute;
+	right: 40px;
+	border: 1px solid #878787;
+	width: 25px;
+	padding-left: 14px;
+}
+
+#xr{
+	position: absolute;
+	right: 0px;
+	width: 25px;
+	border: 1px solid #878787;
+	padding-right: 14px;
+	text-align: right;
+}
+
+#xm a:visited{
+color: #292929;
+}
+
+#xl a{
+	opacity: 0.2;
+	cursor:default;
+}
+
+#zb{
+	float: left;
+}
+
+#zb1{
+position: absolute;
+top: 40px;
+overflow: hidden;
+width: 1490px;
+height: 400px;
+}
+
+.star{
+	border-top:1px solid black;
+	text-align: center; 
+	height: 300px;
+	width: 281px;
+	position: absolute;
+	background: #F7F7F7;
+}
+
+.star img{
+	height: 200px;
+	width: 200px;
+}
+
+.oragin{
+	color: #FF8C00;
+}
+
+
