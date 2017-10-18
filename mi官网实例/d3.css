@@ -1,0 +1,45 @@
+#d3{
+position: absolute;
+top: 640px;
+left: 120px;
+right: 120px;
+}
+
+#d3r img{
+	width: 25%;
+	height: 150px;
+	padding-left: 2%;
+}
+
+#d3l{
+	height: 150px;
+	width: 17.8%;
+	float: left;
+	background-color: #4D4D4D;
+	opacity: 0.8;
+	font-size: 13px;
+}
+
+#d3r{
+	height:150px;
+}
+
+#d3l table tr td a:visited{
+	color: #CFCFCF;
+}
+
+#d3l table tr td a:hover{
+	color: white;
+}
+#d3l table tr td{
+	padding-left: 2px;
+	text-align: center;
+}
+#d3l table tr td hr{
+	color: #757575;
+	border: 1px solid #545454;
+}
+
+a:link{
+	color: black;
+}
