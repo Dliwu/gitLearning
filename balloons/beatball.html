@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>打气球</title>
+<meta charset="utf-8">
+<meta name="keywords" content="打气球，css，html，原生js">
+<meta name="descript" content="这个打气球游戏希望可以锻炼我自己">
+<style type="text/css">
+*{
+	padding: 0px;
+	margin: 0px;
+}
+body{
+	overflow:hidden;
+}
+.balloon{
+	opacity: 1;
+	position: absolute;
+	width: 160px;
+	height: 160px;
+	border-radius:160px 160px 64px 160px; 
+	transform:rotate(45deg);
+	box-shadow: -8px -8px 80px -8px black inset;
+}
+.balloon:after{
+	position:absolute;
+	content: "";
+	bottom: 0px;
+	right: 0px;
+	width: 0px;
+	height: 0px;
+	border: 10px solid;
+	border-color:  transparent  gray transparent  transparent ;
+	transform:rotate(45deg);
+	border-radius: 50%;
+}
+#buttondiv{
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+}
+</style>
+</head>
+<body>
+<div id="buttondiv">
+<a href="javascript:void(0)" onmouseover="begainon()" onmouseout="begainout()" onclick="begain()">
+<img src="an1.png" width="100px" height="100px" id="start">
+</a>
+</div>
+<script type="text/javascript">
+var wx=window.innerWidth;
+var hx=window.innerHeight;
+var balls= [];
+var start=true;
+function begain(){
+	if (start) {
+		init(10);
+		loop();
+		start=false;
+	}
+	else{
+		alert("游戏已经开始");
+	}
+	
+}
+function init(num){
+var fragment =document.createDocumentFragment();//创建文档片段相当于一个连接池，替代了一次加一个的麻烦操作，而是一次添加多个
+for(var i=0;i<num;i++)
+{
+	var ball=document.createElement("div");//创建div对象
+	ball.className="balloon";//将所有div的样式设置为balloon
+	ball.style.top=(hx)+"px";
+	var ww=~~(Math.random()*wx-(160*Math.sqrt(2)));
+	var ww=Math.max(0,ww);
+	ball.speed=~~(Math.random()*20)+1;
+	ball.style.left=ww+"px";
+	fragment.appendChild(ball);//将气球元素添加到文档片段中
+	balls.push(ball);
+}
+document.body.appendChild(fragment);//将10个气球全部加到body中
+}
+
+function begainon(){
+	var change=document.getElementById("start");
+	change.src="an2.png";
+}
+
+function begainout(){
+	var change=document.getElementById("start");
+	change.src="an1.png";
+}
+
+function move(){
+	for (var i = 0,len=balls.length; i < len; i++) {
+		balls[i].style.top=balls[i].offsetTop-balls[i].speed+"px";
+	}
+}
+
+function balldelete(){
+	var del=document.querySelectorAll(".balloon");
+	for (var i = 0,deletelen=del.length; i < deletelen; i++) {
+			if (del[i].offsetTop<0) {
+				var dd=del[i];
+				dd.parentNode.removeChild(dd);
+				balls.splice(balls.lastIndexOf(dd),1);
+				init(1);
+			}
+	}
+}
+
+function loop(){
+	move();
+	balldelete();
+	setTimeout(loop,50);
+}
+
+document.body.addEventListener("click",function(e){
+	if (e.target.className === "balloon") {
+		boom.call(e.target,function(){
+			init(1);
+			e.target.parentNode.removeChild(e.target);
+			balls.splice(balls.lastIndexOf(e.target),1);
+		});
+	}
+},false);
+
+function boom(cb){
+	this.timer=setInterval(function(){
+		if (this.offsetWidth<10) {
+			clearInterval(this.timer);
+			cb&cb();
+		}
+		this.speed++;
+		this.style.width=this.offsetWidth-10+"px";
+		this.style.height=this.offsetHeight-10+"px";
+	}.bind(this),1000/30)
+}
+</script>
+</body>
+</html>
