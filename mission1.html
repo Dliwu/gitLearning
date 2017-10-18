@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title></title>
+<style type="text/css">
+*{
+	padding: 0px;
+	margin: 0px;
+}
+#n1{
+	position: absolute;
+	top: 1%;
+	left: 1%;
+	width: 20%;
+	background: #FF8C00;
+	border-radius: 1em;
+}
+#n2{
+	position: absolute;
+	top: 1%;
+	left: 22%;
+	width: 20%;
+	background: #FF8C00;
+	border-radius: 1em;
+}
+#n3{
+	position: absolute;
+	top: 1%;
+	left: 43%;
+	width: 20%;
+	background: #FF8C00;
+	border-radius: 1em;
+}
+#n4{
+	position: absolute;
+	top: 1%;
+	left: 1%;
+	width: 20%;
+	background: #FF8C00;
+	border-radius: 1em;
+}
+#n5{
+	position: absolute;
+	top: 1%;
+	left: 22%;
+	width: 20%;
+	background: #FF8C00;
+	border-radius: 1em;
+}
+#n6{
+	position: absolute;
+	top: 1%;
+	left: 43%;
+	width: 20%;
+	background: #FF8C00;
+	border-radius: 1em;
+}
+#n7{
+	position: absolute;
+	top: 1%;
+	left: 1%;
+	width: 20%;
+	background: #FF8C00;
+	border-radius: 1em;
+}
+#n8{
+	position: absolute;
+	top: 1%;
+	left: 22%;
+	width: 20%;
+	background: #FF8C00;
+	border-radius: 1em;
+}
+#n9{
+	position: absolute;
+	top: 1%;
+	left: 43%;
+	width: 20%;
+	background: #FF8C00;
+	border-radius: 1em;
+}
+</style>
+</head>
+<body>
+<div class="nine" id="n1"></div>
+<div class="nine" id="n2"></div>
+<div class="nine" id="n3"></div>
+<div class="nine" id="n4"></div>
+<div class="nine" id="n5"></div>
+<div class="nine" id="n6"></div>
+<div class="nine" id="n7"></div>
+<div class="nine" id="n8"></div>
+<div class="nine" id="n9"></div>
+<script type="text/javascript">
+var num=document.querySelectorAll(".nine");
+var j=0;
+var tail=0;
+loop();
+function loop(){
+	for (var i = 0 ,len=num.length; i < len; i++) {
+		num[i].style.height=num[i].offsetWidth+"px";
+		tail=~~(num[i].offsetWidth/20);
+		if (i%3!=0) {
+			num[i].style.top=num[i].offsetWidth*j+(tail*(j+1))+"px";
+		}
+		else
+		{
+			if (i!=0) {
+				j++;
+			num[i].style.top=num[i].offsetWidth*j+(tail*(j+1))+"px";
+			}
+			num[i].style.top=num[i].offsetWidth*j+(tail*(j+1))+"px";
+		}
+	}
+	j=0;
+	setTimeout(loop,30);
+}
+</script>
+</body>
+</html>
